@@ -37,48 +37,54 @@
         </v-card-text>
       </v-flex>
     </v-layout>
-    <v-bottom-sheet v-model="sheet" inset>
+    <div id="version-count">
+      <v-divider></v-divider>
+      <p class="mt-5">Version: 1.0</p>
+    </div>
+    <v-bottom-sheet v-model="sheet" inset id="bottom-sheet">
       <template v-slot:activator="{ on, attrs }">
         <div id="about-btn">
-          <v-btn color="error" dark block large v-bind="attrs" v-on="on">About</v-btn>
+          <v-btn color="error" dark block large v-bind="attrs" v-on="on" tile
+            >About</v-btn
+          >
         </div>
       </template>
       <v-row no-gutters class="blue darken-4">
         <v-btn class="mt-6" text color="white" @click="sheet = !sheet"> close </v-btn>
         <v-col>
-          <v-sheet class="text-center pa-10" height="100%">
-            <div class="my-3 text-justify">
+          <v-sheet class="text-center pa-3" height="100%">
+            <div class="py-5 text-justify">
               <v-img
                 src="../assets/img/english-icon.jpg"
                 width="50"
                 height="30"
                 class="ma-auto mb-5"
               ></v-img>
-              This app consists of using firebase authentication services using our Google
-              and Facebook accounts. When accessing or registering, the user accesses the
-              protected route "Home", where he is welcomed with a dynamic text referring
-              to his username with those authentication systems. The navbar and the Sign
-              Out button are dynamic, so they will only appear if the user has accessed
-              his account.
+              This app consists of using Firebase authentication services using our Google
+              and Facebook accounts. <br /><br />When accessing or registering, the user
+              accesses the protected route "Home", where he is welcomed with a dynamic
+              text referring to his username with those authentication systems.
+              <br /><br />The navbar and the Sign Out button are dynamic, so they will
+              only appear if the user has accessed his account.
             </div>
           </v-sheet>
         </v-col>
         <v-col>
-          <v-sheet class="text-center pa-10" height="100%">
-            <div class="my-3 text-justify">
+          <v-sheet class="text-center pa-3" height="100%">
+            <div class="py-5 text-justify">
               <v-img
                 src="../assets/img/spanish-icon.jpg"
                 width="50"
                 height="30"
                 class="ma-auto mb-5"
               ></v-img>
-              Esta app consiste en utilizar los servicios de autenticación de firebase
-              haciendo uso de nuestras cuentas de Google y Facebook. Al acceder o
-              registrarse, el usuario accede a la ruta protegida "Home", donde se le da la
-              bienvenida con un texto dinámico haciendo referencia a su nombre de usuario
-              con dichos sistemas de autenticación. El navbar y el botón de Sign Out son
-              dinámicos, por lo que solo aparecerán en caso de que el usuario haya
-              accedido a su cuenta.
+              Esta app consiste en utilizar los servicios de autenticación de Firebase
+              haciendo uso de nuestras cuentas de Google y Facebook. <br /><br />Al
+              acceder o registrarse, el usuario accede a la ruta protegida "Home", donde
+              se le da la bienvenida con un texto dinámico haciendo referencia a su nombre
+              de usuario con dichos sistemas de autenticación. <br /><br />El navbar y el
+              botón de Sign Out son dinámicos, por lo que solo aparecerán en caso de que
+              el usuario haya accedido a su cuenta.
             </div>
           </v-sheet>
         </v-col>
@@ -139,11 +145,72 @@ export default {
 };
 </script>
 
-<style>
-#about-btn {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
+<style lang="scss">
+// ******* MOBILE RESPONSIVE ******* //
+@media only screen and (min-width: 360px) {
+  #about-btn {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  #version-count {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    color: green;
+    margin-top: 50px;
+  }
+
+  .text-justify {
+    font-size: 12px;
+    padding: 0px;
+  }
+}
+// ******* LAPTOP RESPONSIVE ******* //
+@media only screen and (min-width: 767px) {
+  #about-btn {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  #version-count {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    color: green;
+    margin-top: 50px;
+  }
+  .text-justify {
+    font-size: 15px;
+    margin-bottom: 50px;
+    padding: 20px;
+  }
+}
+
+// ******* DESKTOP RESPONSIVE ******* //
+@media only screen and (min-width: 1370px) {
+  #about-btn {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+
+  #version-count {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    color: green;
+    margin-top: 50px;
+  }
+  .text-justify {
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+  }
 }
 </style>

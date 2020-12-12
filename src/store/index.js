@@ -9,10 +9,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     myuser: {},
+    userlogged: false,
   },
   mutations: {
     newUser(state, payload){
       state.myuser = payload;
+    },
+    userState(state, payload){
+      state.userlogged = payload
     }
   },
   actions: {
@@ -24,12 +28,15 @@ export default new Vuex.Store({
         photo: user.photoURL,
       }
       commit('newUser', myuser)
+      commit('userState', true)
+      console.log(myuser)
 
     },
     signOut({commit}) {
       auth.signOut()
       commit('newUser', null)
-      router.push({name: 'account'})
+      commit('userState', false)
+      router.push("/account")
 
     }
   },

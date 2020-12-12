@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Navbar v-if="myuser != undefined" />
+    <Navbar v-if="userlogged == true" />
 
     <v-container class="pa-5">
       <router-view></router-view>
@@ -23,7 +23,7 @@ export default {
     //
   }),
   computed: {
-    ...mapState(["myuser"]),
+    ...mapState(["myuser", "userlogged"]),
   },
 };
 </script>
