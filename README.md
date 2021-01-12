@@ -1,4 +1,6 @@
-# auth-login-google
+# Login / Register APP with Google
+
+This little app uses the  Firebase auth system in order to login or register using your Google accounts.  
 
 ## Project setup
 ```

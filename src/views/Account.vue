@@ -21,10 +21,10 @@
             <v-icon left dark>mdi-google</v-icon>
             Google
           </v-btn>
-          <v-btn block color="info" class="my-3" @click="facebook">
+          <!-- <v-btn block color="info" class="my-3" @click="facebook">
             <v-icon left dark>mdi-facebook</v-icon>
             Facebook
-          </v-btn>
+          </v-btn> -->
         </v-card-text>
 
         <v-card-text>
@@ -40,6 +40,14 @@
     <div id="version-count">
       <v-divider></v-divider>
       <p class="mt-5">Version: 1.0</p>
+      <a
+        href="https://github.com/Lithos-hub/VUEJS-auth-login-google-facebook"
+        style="text-decoration: none"
+      >
+        <v-btn icon class="mx-auto d-block text-center">
+          <v-icon>mdi-github</v-icon>
+        </v-btn>
+      </a>
     </div>
     <v-bottom-sheet v-model="sheet" inset id="bottom-sheet">
       <template v-slot:activator="{ on, attrs }">
@@ -61,11 +69,11 @@
                 class="ma-auto mb-5"
               ></v-img>
               This app consists of using Firebase authentication services using our Google
-              and Facebook accounts. <br /><br />When accessing or registering, the user
-              accesses the protected route "Home", where he is welcomed with a dynamic
-              text referring to his username with those authentication systems.
-              <br /><br />The navbar and the Sign Out button are dynamic, so they will
-              only appear if the user has accessed his account.
+              accounts. <br /><br />When accessing or registering, the user accesses the
+              protected route "Home", where he is welcomed with a dynamic text referring
+              to his username with those authentication systems. <br /><br />The navbar
+              and the Sign Out button are dynamic, so they will only appear if the user
+              has accessed his account.
             </div>
           </v-sheet>
         </v-col>
@@ -79,12 +87,12 @@
                 class="ma-auto mb-5"
               ></v-img>
               Esta app consiste en utilizar los servicios de autenticación de Firebase
-              haciendo uso de nuestras cuentas de Google y Facebook. <br /><br />Al
-              acceder o registrarse, el usuario accede a la ruta protegida "Home", donde
-              se le da la bienvenida con un texto dinámico haciendo referencia a su nombre
-              de usuario con dichos sistemas de autenticación. <br /><br />El navbar y el
-              botón de Sign Out son dinámicos, por lo que solo aparecerán en caso de que
-              el usuario haya accedido a su cuenta.
+              haciendo uso de nuestras cuentas de Google. <br /><br />Al acceder o
+              registrarse, el usuario accede a la ruta protegida "Home", donde se le da la
+              bienvenida con un texto dinámico haciendo referencia a su nombre de usuario
+              con dichos sistemas de autenticación. <br /><br />El navbar y el botón de
+              Sign Out son dinámicos, por lo que solo aparecerán en caso de que el usuario
+              haya accedido a su cuenta.
             </div>
           </v-sheet>
         </v-col>
@@ -114,11 +122,11 @@ export default {
 
       this.auth(provider);
     },
-    facebook() {
-      const provider = new firebase.auth.FacebookAuthProvider();
+    // facebook() {
+    //   const provider = new firebase.auth.FacebookAuthProvider();
 
-      this.auth(provider);
-    },
+    //   this.auth(provider);
+    // },
     async auth(provider) {
       try {
         const result = await firebase.auth().signInWithPopup(provider);
@@ -136,7 +144,7 @@ export default {
 
         await db.collection("users").doc(myuser.uid).set(myuser);
         console.log("User saved on DB");
-        router.push({ path: "/" });
+        router.push({ path: "/home" });
       } catch (error) {
         console.log(error);
       }

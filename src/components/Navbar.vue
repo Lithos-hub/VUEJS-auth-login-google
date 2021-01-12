@@ -2,13 +2,12 @@
   <nav>
     <v-app-bar color="primary" max-height="70" dark>
       <v-toolbar-title
-        >Login / Register system with <v-icon>mdi-google</v-icon> and
-        <v-icon>mdi-facebook</v-icon></v-toolbar-title
+        >Login / Register system with <v-icon>mdi-google</v-icon></v-toolbar-title
       >
 
       <v-row class="justify-end">
         <v-tab>
-          <router-link to="/" class="white--text routerlink">Home</router-link>
+          <router-link to="/home" class="white--text routerlink">Home</router-link>
         </v-tab>
 
         <v-tab>
