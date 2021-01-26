@@ -41,7 +41,7 @@
       <v-divider></v-divider>
       <p class="mt-5">Version: 1.0</p>
       <a
-        href="https://github.com/Lithos-hub/VUEJS-auth-login-google-facebook"
+        href="https://github.com/Lithos-hub/VUEJS-auth-login-google"
         style="text-decoration: none"
       >
         <v-btn icon class="mx-auto d-block text-center">
